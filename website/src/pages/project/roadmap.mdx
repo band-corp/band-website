@@ -1,0 +1,232 @@
+import { PageContentLayout } from '../../components/PageContentLayout';
+export default props => <PageContentLayout headProps={{ title: 'Roadmap' }} {...props} />;
+
+# Roadmap
+
+> _**Last updated: March 20, 2021**_
+
+- Tasks are listed with their respective details in the [project boards](https://github.com/arwes/arwes/projects).
+- The order in the lists does not exactly represent priority, order, neither execution.
+- The roadmap is subject to changes according to the development progress.
+
+----
+
+## 2014 - 2018
+
+From 2014 to 2018 the project was released in alpha versions where the main
+ideas have been tested out in projects. Though many features were limited, have
+little support / extensibility, or buggy. The plan was to gather enough insight
+to decide and build the foundation of the framework.
+
+----
+
+## 2019
+
+### Q1
+
+#### General
+
+- [x] Define and implement a new project architecture to improve organization,
+simplify tooling, and facilitate developers contributions.
+- [x] Research and playground new ideas and concepts to implement in the project
+with the [soulextract.com](https://github.com/soulextract/soulextract.com) side
+project. The results are going to be used in Arwes.
+- [x] Complete started animation and sounds guidelines. These guidelines will
+establish the ground concepts for the framework to work.
+
+### Q2
+
+#### `@arwes/animation`
+
+- [x] Create an animation specification to define the animation system architecture.
+- [x] Document React components APIs to create animation systems.
+
+#### `@arwes/sounds`
+
+- [x] Create a sounds specification to define the sound system architecture.
+- [x] Develop the `@arwes/sounds` package with the sounds system APIs.
+- [x] Document React components APIs to create sounds systems.
+
+### Q3
+
+#### General
+
+- [x] Complete started purpose guideline document. This will clarify what
+the vision of the project is.
+
+#### `@arwes/animation`
+
+- [x] Define animation system architecture specification.
+- [x] Update animation specification with complex animation flow scenearios.
+- [x] Develop the `@arwes/animation` package with the animation system APIs.
+
+### Q4
+
+#### `@arwes/animation`
+
+- [x] Create animation management components.
+- [x] Create unit and group animation components.
+
+----
+
+## 2020
+
+### Q4
+
+#### General
+
+- [x] Update project dependency packages.
+- [x] Define repository and website documentation file structure.
+- [x] Create documentation guidelines for systems, states, and events.
+- [x] [#64](https://github.com/arwes/arwes/issues/64) _Create Arwes UI/UX design
+specification. (In progress.)_
+- [x] [#61](https://github.com/arwes/arwes/issues/61) Migrate project packages
+source code to TypeScript.
+- [x] [#62](https://github.com/arwes/arwes/issues/62) Setup UMD distribution support.
+
+#### Playground
+
+- [x] [#24](https://github.com/arwes/arwes/issues/24) Add playground support for
+multiple sandboxes.
+- [x] Update playground application UX.
+
+#### `@arwes/animation`
+
+- [x] [#70](https://github.com/arwes/arwes/issues/70) Add declarative and extensible
+animation component tools.
+- [x] [#36](https://github.com/arwes/arwes/issues/36) Add non-parallel animation
+management support.
+- [x] Create animation management documentation.
+
+#### `@arwes/sounds`
+
+- [x] [#81](https://github.com/arwes/arwes/issues/81) Add bleeps provider and bleeps
+component set up tools.
+
+----
+
+## 2021
+
+### Q1
+
+#### General
+
+- [ ] [#64](https://github.com/arwes/arwes/issues/64) Arwes UI/UX design specification.
+
+#### Website
+
+- [x] [#65](https://github.com/arwes/arwes/issues/65) Website application setup.
+- [ ] [#67](https://github.com/arwes/arwes/issues/67) Website docs pages.
+
+#### `@arwes/design`
+
+- [x] Research current React styling tools state to define which ones to use for
+the Arwes theming/styling tools.
+- [x] [#83](https://github.com/arwes/arwes/issues/83) Define and create design
+style and theme tools
+- [x] Create design management documentation.
+
+#### `@arwes/animation`
+
+- [x] Simplify animator TypeScript typing names.
+- [ ] [#95](https://github.com/arwes/arwes/issues/95) Refactor Animator animate
+hooks to event functions.
+- [ ] [#94](https://github.com/arwes/arwes/issues/94) Animator unmount children
+on flow exited.
+
+#### `@arwes/sounds`
+
+- [x] Create sounds management documentation.
+- [x] [#99](https://github.com/arwes/arwes/issues/99) Bleeps players shared across
+components.
+- [x] [#101](https://github.com/arwes/arwes/issues/101) Multiple component loop
+bleep sounds support.
+
+#### `@arwes/core`
+
+- [ ] [#93](https://github.com/arwes/arwes/issues/93) Define strategy to extend
+core components styles.
+- [ ] [#96](https://github.com/arwes/arwes/issues/96) Add application sounds starter
+package.
+- [ ] [#84](https://github.com/arwes/arwes/issues/84) Add Arwes Theme Provider component.
+- [ ] [#86](https://github.com/arwes/arwes/issues/86) Add StylesBaseline component.
+- [ ] [#85](https://github.com/arwes/arwes/issues/85) Add Text component.
+- [ ] [#88](https://github.com/arwes/arwes/issues/88) Add Table component.
+- [ ] [#89](https://github.com/arwes/arwes/issues/89) Add CodeBlock component.
+- [ ] [#90](https://github.com/arwes/arwes/issues/90) Add LoadingBars component.
+- [ ] [#87](https://github.com/arwes/arwes/issues/87) Add Figure component.
+- [ ] [#91](https://github.com/arwes/arwes/issues/91) Add Card component.
+- [ ] [#105](https://github.com/arwes/arwes/issues/105) Add FrameUnderline component.
+- [ ] [#100](https://github.com/arwes/arwes/issues/100) Add Button component.
+- [ ] [#104](https://github.com/arwes/arwes/issues/104) Add List component.
+- [ ] [#103](https://github.com/arwes/arwes/issues/103) Add Blockquote component.
+- [ ] Add Input/Textarea component.
+- [ ] Add Select component.
+- [ ] Add InputCheckbox component.
+- [ ] Add FrameLines component.
+- [ ] Add FrameEdges component.
+- [x] [#102](https://github.com/arwes/arwes/issues/102) Component loop bleeps are
+not stopped when window is unfocused.
+
+### Q2
+
+#### General
+
+- [ ] Project guidelines related to visual design.
+- [ ] [#18](https://github.com/arwes/arwes/issues/18) Update contributing documentation.
+
+#### Playground
+
+- [ ] [#69](https://github.com/arwes/arwes/issues/69) Playground application UI/UX
+design.
+
+#### Website
+
+- [ ] [#66](https://github.com/arwes/arwes/issues/66) Website index page.
+- [ ] [#67](https://github.com/arwes/arwes/issues/67) Website docs pages.
+- [ ] [#68](https://github.com/arwes/arwes/issues/68) Website API pages.
+
+#### `@arwes/animation`
+
+- [ ] [#63](https://github.com/arwes/arwes/issues/63) Research SEO support for
+animated components.
+
+#### `@arwes/sounds`
+
+- [ ] [#97](https://github.com/arwes/arwes/issues/97) Custom bleeps preloading.
+
+#### `@arwes/core`
+
+- [ ] [#96](https://github.com/arwes/arwes/issues/96) Add application sounds starter
+package.
+- [ ] Add Appear component.
+- [ ] Add Puffs component.
+- [ ] Add Highlight component.
+- [ ] Add Modal component.
+- [ ] Add Line component.
+- [ ] Add InputRadio component.
+- [ ] Add Nav component.
+- [ ] Add Menu component.
+- [ ] Add FrameHexagon component.
+- [ ] Add FramePentagon component.
+- [ ] Add FrameVessel component.
+- [ ] Add BackgroundDots component.
+- [ ] Add BackgroundBoxes component.
+- [ ] Add BackgroundHexagons component.
+
+#### `@arwes/arwes`
+
+- [ ] Add Logo component.
+
+### Q3
+
+#### `@arwes/animation`
+
+- [ ] [#98](https://github.com/arwes/arwes/issues/98) Animator performance
+optimizations.
+
+#### `@arwes/core`
+
+- [ ] Add FormLegend component.
+- [ ] Add LoadingCircular component.
+- [ ] Add Alert component.

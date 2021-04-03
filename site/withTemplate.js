@@ -1,27 +1,25 @@
 import React from 'react';
-import {
-  ThemeProvider,
-  createTheme,
-  SoundsProvider,
-  createSounds
-} from 'arwes';
 
-import createAppTheme from './createAppTheme';
+import ThemeProvider from '../src/ThemeProvider';
+import createTheme from '../src/tools/createTheme';
+import SoundsProvider from '../src/SoundsProvider';
+import createSounds from '../src/tools/createSounds';
+
 import Template from './components/Template';
 
 const resources = {
   background: {
-    small: '/static/img/background-small.jpg',
+    small: '/static/img/background.jpg',
     medium: '/static/img/background-medium.jpg',
     large: '/static/img/background-large.jpg',
-    xlarge: '/static/img/background-xlarge.jpg'
+    xlarge: '/static/img/background-large.jpg'
   },
   pattern: '/static/img/glow.png',
 };
 
 const sounds = {
   shared: {
-    volume: 0.6,
+    volume: 0.5,
   },
   players: {
     click: {
@@ -41,7 +39,7 @@ const sounds = {
 
 export default (App) => {
   return (props) => (
-    <ThemeProvider theme={createTheme(createAppTheme())}>
+    <ThemeProvider theme={createTheme()}>
       <SoundsProvider sounds={createSounds(sounds)}>
         <Template>
           <App resources={resources} {...props} />

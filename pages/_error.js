@@ -1,5 +1,10 @@
 import React from 'react';
-import { withStyles, Arwes, Content, Words, Line } from 'arwes';
+
+import withStyles from '../src/tools/withStyles';
+import Arwes from '../src/Arwes';
+import ArwesContent from '../src/Content';
+import Words from '../src/Words';
+import Line from '../src/Line';
 
 import withTemplate from '../site/withTemplate';
 
@@ -25,7 +30,7 @@ const Error = props => {
       pattern={resources.pattern}
     >
       {anim => (
-      <Content className={classes.root}>
+      <ArwesContent className={classes.root}>
         <Line animate show={anim.entered} layer='header' />
         <h1 className={classes.title}>
           <Words animate show={anim.entered}>Transmission error</Words>
@@ -34,7 +39,7 @@ const Error = props => {
         <p><a href='/'>
           <Words animate show={anim.entered}>Go to Start</Words>
         </a></p>
-      </Content>
+      </ArwesContent>
       )}
     </Arwes>
   );

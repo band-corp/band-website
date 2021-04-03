@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import { withStyles } from 'arwes';
+import withStyles from '../../src/tools/withStyles';
 
 const styles = () => ({
   root: {
@@ -17,7 +17,9 @@ const Wrap = props => {
     children,
     ...etc
   } = props;
+
   const cls = cx(classes.root, className);
+
   return (
     <div className={cls} {...etc}>
       {children}

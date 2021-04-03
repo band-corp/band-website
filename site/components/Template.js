@@ -24,7 +24,7 @@ export default class Template extends React.Component {
 
   setGA () {
 
-    if (!location.origin.includes('romelperez')) return;
+    if (!location.origin.includes('arwes')) return;
 
     if (!window.GA_INITIALIZED) {
       GA.initialize(googleAnalytics);

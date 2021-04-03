@@ -33,27 +33,27 @@ export default class AppDocument extends Document {
     return (
       <html lang='en'>
         <Head>
-          <meta name='viewport' content='width=device-width, initial-scale=1' />
+          <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' />
           <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
           <title>{title}</title>
 
-          <meta name='description' content="Software engineering autodidact. Enthusiast, JavaScript dev, Sci-Fi and nature fan. Making the world a better place through lines of code" />
-          <meta name='keywords' content='romel perez, romel pérez, prhone, software engineer, frontend engineer, programmer' />
+          <meta name='description' content='Futuristic Sci-Fi and Cyberpunk Graphical User Interface Framework for Web Apps' />
+          <meta name='keywords' content='arwes, arwesjs, scifi, sci-fi, cyberpunk, ui, framework, javascript, reactjs, react.js' />
           <meta name='robots' content='index, follow' />
 
           <meta property='og:title' content={title} />
           <meta property='og:site_name' content={title} />
-          <meta property='og:description' content="Software engineering autodidact. Enthusiast, JavaScript dev, Sci-Fi and nature fan. Making the world a better place through lines of code" />
+          <meta property='og:description' content='Futuristic Sci-Fi and Cyberpunk Graphical User Interface Framework for Web Apps' />
           <meta property='og:type' content='website' />
-          <meta property='og:url' content='https://romelperez.com' />
-          <meta property='og:image' content='https://romelperez.com/static/img/romelperez.jpg' />
+          <meta property='og:url' content='https://arwesjs.org' />
+          <meta property='og:image' content='https://arwesjs.org/static/img/arwes.jpg' />
 
           <meta name='twitter:card' content='summary_large_image' />
           <meta name='twitter:title' content={title} />
-          <meta name='twitter:description' content="Software engineering autodidact. Enthusiast, JavaScript dev, Sci-Fi and nature fan. Making the world a better place through lines of code" />
+          <meta name='twitter:description' content='Futuristic Sci-Fi and Cyberpunk Graphical User Interface Framework for Web Apps' />
           <meta name='twitter:site' content='@romelperez07' />
           <meta name='twitter:creator' content='@romelperez07' />
-          <meta name='twitter:image' content='https://romelperez.com/static/img/romelperez.jpg' />
+          <meta name='twitter:image' content='https://arwesjs.org/static/img/arwes.jpg' />
 
           <meta name='theme-color' content='#000000' />
           <meta name='apple-mobile-web-app-capable' content='yes' />
@@ -84,7 +84,7 @@ export default class AppDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <link rel='stylesheet' href='//cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css' />
+          <link rel='stylesheet' href='//cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css' />
         </body>
       </html>
     );

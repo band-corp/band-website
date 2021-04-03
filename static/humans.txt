@@ -1,11 +1,6 @@
 /* humanstxt.org */
 
-/* SITE */
-  Standards: ES2015, JSS, JSX
-  Components: React, Arwes
-  Software: Linux, Git, Atom
-
 /* TEAM */
   Romel Perez
-  @romelperez07
+  romelperez.com
   Colombia

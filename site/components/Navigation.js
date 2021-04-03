@@ -1,19 +1,25 @@
 import React from 'react';
 import cx from 'classnames';
-import { withStyles, Highlight } from 'arwes';
 
-import TextIcon from './TextIcon';
+import withStyles from '../../src/tools/withStyles';
+import Words from '../../src/Words';
+import Highlight from '../../src/Highlight';
+import Appear from '../../src/Appear';
+
 import Link from './Link';
 
 const linksList = [{
-  name: 'Projects',
-  icon: 'apps',
-  href: '/projects'
+  name: 'Docs',
+  icon: 'note-outline',
+  href: '/docs'
 }, {
-  name: 'Curriculum',
-  icon: 'chip',
-  href: 'https://www.linkedin.com/in/romelperez',
-  target: '_blank'
+  name: 'API',
+  icon: 'code-brackets',
+  href: '/api'
+}, {
+  name: 'Play',
+  icon: 'beaker',
+  href: '/play'
 }];
 
 const styles = theme => ({
@@ -35,16 +41,10 @@ const styles = theme => ({
   },
 });
 
-const Navigation = props => {
-  const {
-    theme,
-    classes,
-    show,
-    onLink,
-    className,
-    ...etc
-  } = props;
+function Navigation (props) {
+  const { theme, classes, show, onLink, className, ...etc } = props;
   const cls = cx(classes.root, className);
+
   return (
     <nav className={cls} {...etc}>
       {linksList.map((linkItem, index) => (
@@ -53,17 +53,16 @@ const Navigation = props => {
         className={classes.link}
         href={linkItem.href}
         onLink={onLink}
-        target={linkItem.target}
       >
         <Highlight className={classes.button} animate layer='header'>
-          <TextIcon show={show} icon={linkItem.icon}>
-            {linkItem.name}
-          </TextIcon>
+          <Appear className={`mdi mdi-${linkItem.icon}`} animate show={show} />
+          {' '}
+          <Words animate show={show}>{linkItem.name}</Words>
         </Highlight>
       </Link>
       ))}
     </nav>
   );
-};
+}
 
 export default withStyles(styles)(Navigation);

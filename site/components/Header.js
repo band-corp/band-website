@@ -1,6 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
-import { withStyles, Header as ArwesHeader, Row, Col } from 'arwes';
+
+import withStyles from '../../src/tools/withStyles';
+import ArwesHeader from '../../src/Header';
+import { Row, Col } from '../../src/Grid';
 
 import Wrap from './Wrap';
 import Brand from './Brand';
@@ -16,6 +19,7 @@ const styles = theme => ({
   links: {
     marginTop: theme.padding / 2,
   },
+
   [`@media (min-width: ${theme.responsive.small + 1}px)`]: {
     root: {
       textAlign: 'left',
@@ -29,16 +33,15 @@ const styles = theme => ({
 
 const Header = props => {
   const {
-    theme,
+    onLink,
     classes,
     className,
-    onLink,
     ...etc
   } = props;
   const cls = cx(classes.root, className);
+
   return (
     <ArwesHeader
-      animate
       className={cls}
       {...etc}
     >

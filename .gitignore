@@ -32,14 +32,18 @@ nbproject
 .node_repl_history
 .vagrant
 .eslintcache
+.DS_Store
 
 Thumbs.db
 dump.rdb
 npm-debug.log
-package-lock.json
+yarn-error.log
 
 ##
 ## PROJECT
 ##
 
+lib
 build
+site/api-components/*
+!site/api-components/.gitkeep

@@ -1,85 +1,78 @@
 import React from 'react';
-import {
-  withStyles,
-  Arwes,
-  Content,
-  Words,
-  Image,
-  Button,
-  Loading,
-  createLoader,
-  createResponsive,
-  utils
-} from 'arwes';
+
+import withStyles from '../src/tools/withStyles';
+import { getResponsiveResource } from '../src/tools/utils';
+import createLoader from '../src/tools/createLoader';
+import createResponsive from '../src/tools/createResponsive';
+import Arwes from '../src/Arwes';
+import ArwesContent from '../src/Content';
+import Words from '../src/Words';
+import Button from '../src/Button';
+import Logo from '../src/Logo';
+import Loading from '../src/Loading';
 
 import withTemplate from '../site/withTemplate';
-import { Link, TextIcon } from '../site/components';
+import { getTitle } from '../site/utils';
+import Link from '../site/components/Link';
+import FooterGitHub from '../site/components/FooterGitHub';
+import FooterAuthor from '../site/components/FooterAuthor';
 
-const styles = theme => ({
-  root: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  content: {
-    margin: 'auto',
-    padding: theme.padding,
-    textAlign: 'center',
-    maxWidth: 580,
-    '& h1': {
-      margin: 0,
-      paddingTop: 5,
-      fontSize: 32,
-      lineHeight: '1',
-    },
-    '& p': {
-      margin: 0,
-    },
-    '& $detail + $detail': {
-      marginTop: theme.margin / 2,
-    },
-  },
-  section: {
-    marginBottom: theme.margin / 1.5,
-    '&:last-child': {
-      margin: 0,
-    },
-  },
-  profile: {
-    margin: 0,
-    display: 'inline-block',
-    width: 150,
-  },
-  detail: {
-    display: 'block',
-  },
-  textIcon: {
-    textAlign: 'center',
-  },
-  button: {
-    width: '50%',
-  },
-  // medium size +
-  [`@media screen and (min-width: ${theme.responsive.small + 1}px)`]: {
-    content: {
-      '& $detail + $detail': {
-        margin: [0, 0, 0, theme.margin / 2],
+const styles = (theme) => {
+  return {
+    root: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      display: 'flex',
+      flexDirection: 'column',
+      '& h1': {
+        margin: [0, 0, theme.margin / 2],
+        fontSize: 40,
+      },
+      '& p': {
+        margin: [0, 0, theme.margin],
+        maxWidth: 500,
+      },
+      '& $option + $option': {
+        marginLeft: theme.padding / 2,
       },
     },
-    detail: {
+    main: {
+      flex: 1,
+      display: 'flex',
+    },
+    content: {
+      margin: 'auto',
+      padding: [0, theme.padding],
+      textAlign: 'center',
+    },
+    option: {
       display: 'inline-block',
     },
-    button: {
-      width: 'auto',
+    footer: {
+      opacity: theme.alpha / 2,
     },
-  },
-});
+    footerContent: {
+      display: 'flex',
+      padding: theme.padding / 2,
+      fontSize: '80%',
+    },
+    footerLeft: {
+      flex: '1 1 auto',
+    },
+    footerRight: {
+      flex: '1 1 auto',
+      textAlign: 'right',
+      '& a': {
+        textAlign: 'left',
+      },
+    },
+  };
+};
 
-class Index extends React.Component {
+class Home extends React.Component {
 
   constructor () {
     super(...arguments);
@@ -88,8 +81,6 @@ class Index extends React.Component {
       loaded: false
     };
 
-    this.profile = '/static/img/profile.jpg';
-
     this.loader = createLoader();
     this.responsive = createResponsive({
       getTheme: () => this.props.theme
@@ -97,14 +88,13 @@ class Index extends React.Component {
   }
 
   componentDidMount () {
+    window.document.title = getTitle(window.location.pathname);
     this.startLoading();
   }
 
   render () {
-    const { show, loaded } = this.state;
-
     const { classes, resources } = this.props;
-    const { background, pattern } = resources;
+    const { show, loaded } = this.state;
 
     return (
       <div>
@@ -120,74 +110,75 @@ class Index extends React.Component {
           animate
           show={show}
           showResources={show}
-          background={background}
-          pattern={pattern}
+          background={resources.background}
+          pattern={resources.pattern}
         >
           {anim => (
-          <Content className={classes.root}>
+          <ArwesContent className={classes.root}>
 
-            <div className={classes.content}>
+            <div className={classes.main}>
+              <div className={classes.content}>
 
-              <div className={classes.section}>
-                <Image
-                  className={classes.profile}
-                  animate
-                  show={anim.entered}
-                  resources={this.profile}
-                />
+                <Logo animate show={anim.entered} layer='header' />
+                <header>
+                  <h1><Words animate show={anim.entered}>
+                    Arwes
+                  </Words></h1>
+                </header>
+                <main>
+                  <p style={{ marginBottom: '10px' }}>
+                    <Words animate show={anim.entered}>
+                      Futuristic Sci-Fi and Cyberpunk Graphical User Interface Framework for Web Apps
+                    </Words>
+                  </p>
+                  <p><small><a href='https://arwes.dev'>
+                    <Words animate show={anim.entered}>
+                      This project version is now deprecated. Please use arwes.dev.
+                    </Words>
+                  </a></small></p>
+                </main>
+
+                <nav>
+                  <Link className={classes.option} href='/docs' onLink={this.onLink}>
+                    <Button animate show={anim.entered}>
+                      {btnAnim => (
+                        <Words animate show={btnAnim.entered}>Docs</Words>
+                      )}
+                    </Button>
+                  </Link>
+                  {' '}
+                  <Link className={classes.option} href='/api' onLink={this.onLink}>
+                    <Button animate show={anim.entered}>
+                      {btnAnim => (
+                        <Words animate show={btnAnim.entered}>API</Words>
+                      )}
+                    </Button>
+                  </Link>
+                  {' '}
+                  <Link className={classes.option} href='/play' onLink={this.onLink}>
+                    <Button animate show={anim.entered}>
+                      {btnAnim => (
+                        <Words animate show={btnAnim.entered}>Play</Words>
+                      )}
+                    </Button>
+                  </Link>
+                </nav>
+
               </div>
-
-              <div className={classes.section}>
-                <h1><Words animate show={anim.entered}>
-                  Romel Pérez
-                </Words></h1>
-              </div>
-
-              <div className={classes.section}>
-                <p><Words animate show={anim.entered}>
-                    Web Frontend Engineer. JavaScript, Sci-Fi, Nature, Yoga.
-                    Developing Epic User Experiences.
-                </Words></p>
-              </div>
-
-              <div className={classes.section}>
-                <Link className={classes.detail} href='https://www.linkedin.com/in/romelperez' target='linkedin' onLink={this.onLink}>
-                  <TextIcon className={classes.textIcon} show={anim.entered} icon='code-brackets'>Web Engineer</TextIcon>
-                </Link>
-                <Link className={classes.detail} href='https://github.com/romelperez' target='_blank' onLink={this.onLink}>
-                  <TextIcon className={classes.textIcon} show={anim.entered} icon='briefcase-outline'>Open Source</TextIcon>
-                </Link>
-                <Link className={classes.detail} href='https://www.google.com.co/maps/place/Medellin' target='_blank' onLink={this.onLink}>
-                  <TextIcon className={classes.textIcon} show={anim.entered} icon='map-marker-outline'>Medellin</TextIcon>
-                </Link>
-              </div>
-
-              <div className={classes.section}>
-                <Link className={classes.detail} href='/projects' onLink={this.onLink}>
-                  <Button className={classes.button} animate show={anim.entered}>
-                    {anim2 => <Words animate show={anim2.entered}>Projects</Words>}
-                  </Button>
-                </Link>
-                <Link className={classes.detail} href='https://www.linkedin.com/in/romelperez' target='linkedin' onLink={this.onLink}>
-                  <Button className={classes.button} animate show={anim.entered}>
-                    {anim2 => <Words animate show={anim2.entered}>Curriculum</Words>}
-                  </Button>
-                </Link>
-                <Link className={classes.detail} href='https://github.com/romelperez' target='github' onLink={this.onLink}>
-                  <Button className={classes.button} animate show={anim.entered}>
-                    {anim2 => <Words animate show={anim2.entered}>GitHub</Words>}
-                  </Button>
-                </Link>
-                <Link className={classes.detail} href='https://twitter.com/romelperez07' target='twitter' onLink={this.onLink}>
-                  <Button className={classes.button} animate show={anim.entered}>
-                    {anim2 => <Words animate show={anim2.entered}>Twitter</Words>}
-                  </Button>
-                </Link>
-              </div>
-
             </div>
 
-          </Content>
+            <footer className={classes.footer}>
+              <div className={classes.footerContent}>
+                <div className={classes.footerLeft}>
+                  <FooterGitHub show={anim.entered} onLink={this.onLink} />
+                </div>
+                <div className={classes.footerRight}>
+                  <FooterAuthor show={anim.entered} onLink={this.onLink} />
+                </div>
+              </div>
+            </footer>
+
+          </ArwesContent>
           )}
         </Arwes>
       </div>
@@ -196,9 +187,9 @@ class Index extends React.Component {
 
   startLoading () {
     const responsive = this.responsive.get();
-    const background = utils.getResponsiveResource(this.props.resources.background, responsive);
+    const bg = getResponsiveResource(this.props.resources.background, responsive);
 
-    this.loader.load({ images: [background, this.profile] }, { timeout: 5 * 1000 }).
+    this.loader.load({ images: [bg] }, { timeout: 5 * 1000 }).
       then(() => {}, () => {}).
       then(() => this.setState({ show: true, loaded: true }));
   }
@@ -208,4 +199,4 @@ class Index extends React.Component {
   }
 }
 
-export default withTemplate(withStyles(styles)(Index));
+export default withTemplate(withStyles(styles)(Home));

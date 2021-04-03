@@ -1,6 +1,8 @@
 import React from 'react';
 import Router from 'next/router';
-import { withStyles, withSounds } from 'arwes';
+
+import withStyles from '../../src/tools/withStyles';
+import withSounds from '../../src/tools/withSounds';
 
 const isExtern = /^https?\:\/\//;
 
@@ -46,7 +48,7 @@ const Link = props => {
   };
 
   return (
-    <a {...etc} href={href} target={target} onClick={linkTrigger}>
+    <a {...etc} href={href} onClick={linkTrigger}>
       {children}
     </a>
   );
